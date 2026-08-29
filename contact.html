@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Nova Ray Solar</title>
+<meta name="description" content="Get in touch with Nova Ray Solar for a free solar site inspection and quote. Based in Moreleta Park, Pretoria.">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">
+      <img src="images/logo.jpeg" alt="Nova Ray Solar logo">
+      <div class="brand-text">
+        <span class="name">NOVA <span>RAY</span> SOLAR</span>
+        <span class="tagline">Powering a Brighter Future</span>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="packages.html">Packages</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="contact.html" class="nav-cta">Get a Free Quote</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Get In Touch</h1>
+    <p>Book a free site inspection or ask us anything about solar for your home or business.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container contact-grid">
+
+    <div class="contact-card">
+      <h3>Contact Details</h3>
+      <div class="contact-item">
+        <div class="icon">&#128205;</div>
+        <div>
+          <strong>Address</strong>
+          <span>600 Freedman Ave, Moreleta Park, Pretoria</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="icon">&#128222;</div>
+        <div>
+          <strong>Phone / WhatsApp</strong>
+          <a href="tel:+27725519140">072 551 9140 (Eugene)</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="icon">&#9993;</div>
+        <div>
+          <strong>Email</strong>
+          <a href="mailto:solar.novaray@gmail.com">solar.novaray@gmail.com</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="icon">&#128337;</div>
+        <div>
+          <strong>Site Inspections</strong>
+          <span><!-- PLACEHOLDER: confirm operating hours / days available for site inspections --> By appointment — contact us to schedule</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3>Request a Free Quote</h3>
+      <p>Fill in your details and a brief description of your home or business, and we'll be in touch to arrange a free site inspection.</p>
+      <!-- Static form: currently confirms locally on submit. Wire to a form backend (e.g. Formspree, mailto) if email delivery is required. -->
+      <form id="contact-form">
+        <div class="form-row">
+          <div>
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div>
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+        </div>
+        <div>
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+          <label for="package">Interested In</label>
+          <select id="package" name="package">
+            <option value="">Not sure yet</option>
+            <option value="entry">Entry — 5kW LuxPower / R55,000</option>
+            <option value="popular">5kW Deye / R65,000</option>
+            <option value="growing">8kW Deye / R100,000</option>
+            <option value="high">12kW LuxPower / R105,000</option>
+            <option value="max">12kW Deye / R128,000</option>
+          </select>
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us about your property and current electricity usage..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Enquiry</button>
+        <p class="form-note" id="form-status"></p>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="images/logo.jpeg" alt="Nova Ray Solar logo">
+          <span>Nova Ray Solar</span>
+        </div>
+        <p style="max-width:280px;">Powering a brighter future for homes and businesses in Pretoria with reliable, professionally installed solar systems.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="packages.html">Solar Packages</a></li>
+          <li><a href="gallery.html">Installation Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>600 Freedman Ave, Moreleta Park, Pretoria</li>
+          <li><a href="tel:+27725519140">072 551 9140 (Eugene)</a></li>
+          <li><a href="mailto:solar.novaray@gmail.com">solar.novaray@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> Nova Ray Solar. All rights reserved.</span>
+      <span>Pretoria, South Africa</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
