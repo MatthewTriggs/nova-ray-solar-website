@@ -1,4 +1,4 @@
-/* Nova Ray Solar — site styles */
+/* Nova Ray Solar: site styles */
 
 :root {
   --navy: #0a1628;
@@ -299,6 +299,10 @@ p { margin: 0 0 16px; color: var(--gray); }
   gap: 28px;
 }
 
+.feature-grid.feature-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .feature-card {
   background: var(--white);
   border-radius: var(--radius);
@@ -427,6 +431,19 @@ p { margin: 0 0 16px; color: var(--gray); }
 .package-card .btn {
   width: 100%;
   justify-content: center;
+}
+
+.price-match-note {
+  margin: 14px 0 0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: rgba(245, 177, 32, 0.1);
+  border: 1px solid rgba(245, 177, 32, 0.3);
+  color: var(--gold);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.4;
 }
 
 .package-note {

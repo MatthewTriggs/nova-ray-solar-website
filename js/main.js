@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
       e.preventDefault();
       var status = document.getElementById("form-status");
       if (status) {
-        status.textContent = "Thanks — your enquiry has been noted. We'll be in touch shortly. For a faster response, call or WhatsApp 072 551 9140.";
+        status.textContent = "Thanks! Your enquiry has been noted. We'll be in touch shortly. For a faster response, call or WhatsApp 072 551 9140.";
       }
       form.reset();
     });
