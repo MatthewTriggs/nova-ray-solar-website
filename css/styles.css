@@ -17,7 +17,7 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   margin: 0;
@@ -25,6 +25,7 @@ body {
   color: var(--gray-dark);
   background: var(--white);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 img { max-width: 100%; display: block; }
@@ -723,7 +724,7 @@ textarea { resize: vertical; min-height: 120px; }
 /* Responsive */
 @media (max-width: 900px) {
   .hero-inner, .about-grid, .contact-grid { grid-template-columns: 1fr; }
-  .feature-grid { grid-template-columns: 1fr 1fr; }
+  .feature-grid, .feature-grid.feature-grid-4 { grid-template-columns: 1fr 1fr; }
   .steps { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .hero-photo { order: -1; }
@@ -745,7 +746,7 @@ textarea { resize: vertical; min-height: 120px; }
   }
   .nav-links.open { display: flex; }
   .nav-toggle { display: flex; }
-  .feature-grid { grid-template-columns: 1fr; }
+  .feature-grid, .feature-grid.feature-grid-4 { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .hero-stats { grid-template-columns: 1fr; gap: 14px; }
