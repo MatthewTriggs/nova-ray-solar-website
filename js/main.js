@@ -24,10 +24,46 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var status = document.getElementById("form-status");
-      if (status) {
-        status.textContent = "Thanks! Your enquiry has been noted. We'll be in touch shortly. For a faster response, call or WhatsApp 072 551 9140.";
-      }
-      form.reset();
+      var button = form.querySelector('button[type="submit"]');
+      var buttonText = button.textContent;
+
+      var setStatus = function (text, type) {
+        status.textContent = text;
+        status.className = "form-note" + (type ? " is-" + type : "");
+      };
+
+      var data = {};
+      new FormData(form).forEach(function (value, key) {
+        data[key] = value;
+      });
+
+      button.disabled = true;
+      button.textContent = "Sending...";
+      setStatus("", "");
+
+      fetch("https://formsubmit.co/ajax/solar.novaray@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(data)
+      })
+        .then(function (response) {
+          return response.json().then(function (result) {
+            if (!response.ok || String(result.success) !== "true") {
+              throw new Error(result.message || "Submission failed");
+            }
+          });
+        })
+        .then(function () {
+          setStatus("Thanks! Your enquiry has been sent. We'll be in touch shortly. For a faster response, call or WhatsApp 072 551 9140.", "success");
+          form.reset();
+        })
+        .catch(function () {
+          setStatus("Sorry, your enquiry couldn't be sent. Please call or WhatsApp us on 072 551 9140, or email solar.novaray@gmail.com.", "error");
+        })
+        .then(function () {
+          button.disabled = false;
+          button.textContent = buttonText;
+        });
     });
   }
 });

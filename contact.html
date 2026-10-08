@@ -79,8 +79,12 @@
     <div>
       <h3>Request a Free Quote</h3>
       <p>Fill in your details and a brief description of your home or business, and we'll be in touch to arrange a free site inspection.</p>
-      <!-- Static form: currently confirms locally on submit. Wire to a form backend (e.g. Formspree, mailto) if email delivery is required. -->
-      <form id="contact-form">
+      <!-- Enquiries are delivered by FormSubmit (formsubmit.co) to solar.novaray@gmail.com. js/main.js sends them via the AJAX endpoint; the action below is the no-JavaScript fallback. -->
+      <form id="contact-form" action="https://formsubmit.co/solar.novaray@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New website enquiry - Nova Ray Solar">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" class="form-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="form-row">
           <div>
             <label for="name">Full Name</label>
@@ -98,12 +102,12 @@
         <div>
           <label for="package">Interested In</label>
           <select id="package" name="package">
-            <option value="">Not sure yet</option>
-            <option value="entry">5kW System (LuxPower) - R55,000</option>
-            <option value="popular">5kW System (Deye) - R65,000</option>
-            <option value="growing">8kW System (Deye) - R100,000</option>
-            <option value="high">12kW System (LuxPower) - R105,000</option>
-            <option value="max">12kW System (Deye) - R128,000</option>
+            <option value="Not sure yet">Not sure yet</option>
+            <option value="5kW System (LuxPower) - R55,000">5kW System (LuxPower) - R55,000</option>
+            <option value="5kW System (Deye) - R65,000">5kW System (Deye) - R65,000</option>
+            <option value="8kW System (Deye) - R100,000">8kW System (Deye) - R100,000</option>
+            <option value="12kW System (LuxPower) - R105,000">12kW System (LuxPower) - R105,000</option>
+            <option value="12kW System (Deye) - R128,000">12kW System (Deye) - R128,000</option>
           </select>
         </div>
         <div>

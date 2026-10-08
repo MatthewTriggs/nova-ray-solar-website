@@ -10,7 +10,7 @@ Static HTML/CSS/JS website for Nova Ray Solar, a solar installation business bas
 - `gallery.html`: Installation photo gallery
 - `contact.html`: Contact details and enquiry form
 - `css/styles.css`: Site styles
-- `js/main.js`: Mobile nav toggle, footer year, contact form handling
+- `js/main.js`: Mobile nav toggle, footer year, contact form submission (FormSubmit)
 - `images/`: Logo, installation photos and package pamphlet images
 
 ## Placeholder content
@@ -23,7 +23,9 @@ Search the codebase for `PLACEHOLDER` to find copy the client should confirm bef
 
 ## Contact form
 
-The enquiry form on `contact.html` currently just confirms submission locally in the browser (no backend). To actually receive enquiries by email, wire it to a form backend such as Formspree, or replace it with a `mailto:` link.
+The enquiry form on `contact.html` sends submissions by email to solar.novaray@gmail.com using [FormSubmit](https://formsubmit.co) (free, no account). `js/main.js` posts to the AJAX endpoint and shows a success or error message; the form's `action` is a fallback for visitors without JavaScript. A hidden `_honey` field filters spam bots.
+
+FormSubmit only delivers after a one-time activation: the first submission sends an activation email to solar.novaray@gmail.com, and the link in it must be clicked. To change the receiving address, update it in both `contact.html` and `js/main.js` (and re-activate).
 
 ## Source content
 
