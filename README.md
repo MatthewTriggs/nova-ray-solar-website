@@ -6,7 +6,7 @@ Static HTML/CSS/JS website for Nova Ray Solar, a solar installation business bas
 
 - `index.html`: Home page
 - `about.html`: About the business
-- `packages.html`: Full solar package pricing (5 packages, R55,000-R128,000)
+- `packages.html`: Full solar package pricing (5 packages, prices shown as "From R55,000" up to "From R128,000")
 - `gallery.html`: Installation photo gallery
 - `contact.html`: Contact details and enquiry form
 - `css/styles.css`: Site styles
