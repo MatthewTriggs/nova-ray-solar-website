@@ -45,11 +45,17 @@ module.exports = async function handler(req, res) {
       },
       body: JSON.stringify(data)
     });
-    var result = await response.json();
+    var text = await response.text();
+    var result = {};
+    try {
+      result = JSON.parse(text);
+    } catch (e) {
+      result = { message: "Unexpected response from FormSubmit" };
+    }
 
     if (!response.ok || String(result.success) !== "true") {
-      console.error("FormSubmit rejected enquiry:", response.status, result.message);
-      return res.status(502).json({ success: false, message: result.message || "Submission failed" });
+      console.error("FormSubmit rejected enquiry:", response.status, text.slice(0, 500));
+      return res.status(502).json({ success: false, message: result.message || "Submission failed", upstreamStatus: response.status });
     }
 
     return res.status(200).json({ success: true });
