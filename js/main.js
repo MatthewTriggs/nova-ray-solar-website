@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
       button.textContent = "Sending...";
       setStatus("", "");
 
-      fetch("https://formsubmit.co/ajax/solar.novaray@gmail.com", {
+      fetch("/api/enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(data)
