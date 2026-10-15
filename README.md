@@ -13,6 +13,10 @@ Static HTML/CSS/JS website for Nova Ray Solar, a solar installation business bas
 - `js/main.js`: Mobile nav toggle, footer year, contact form submission (FormSubmit)
 - `images/`: Logo, installation photos and package pamphlet images
 
+## Clean URLs
+
+`vercel.json` sets `cleanUrls`, so pages are served as `/about`, `/packages` etc. and old `.html` links redirect automatically. Internal links use the clean paths (`/`, `/about`, ...).
+
 ## Placeholder content
 
 Search the codebase for `PLACEHOLDER` to find copy the client should confirm before this goes live:
@@ -25,7 +29,7 @@ Search the codebase for `PLACEHOLDER` to find copy the client should confirm bef
 
 The enquiry form on `contact.html` sends submissions by email to solar.novaray@gmail.com using [FormSubmit](https://formsubmit.co) (free, no account). `js/main.js` posts straight from the browser to FormSubmit's AJAX endpoint. FormSubmit rejects requests without a Referer header (some browsers and privacy extensions strip it), and it blocks server-side requests from Vercel (403), so a proxy function is not an option. If sending fails, the visitor gets a "Send via WhatsApp instead" button with their details pre-filled; the form's `action` is a fallback for visitors without JavaScript. A hidden `_honey` field filters spam bots.
 
-FormSubmit only delivers after a one-time activation: the first submission sends an activation email to solar.novaray@gmail.com, and the link in it must be clicked. To change the receiving address, update it in both `contact.html` and `js/main.js` (and re-activate).
+FormSubmit only delivers after a one-time activation: the first submission sends an activation email to solar.novaray@gmail.com, and the link in it must be clicked. Activation is per website address, so it was needed separately for nova-ray-solar-website.vercel.app and novaraysolar.co.za (and again for any new domain). To change the receiving address, update it in both `contact.html` and `js/main.js` (and re-activate).
 
 ## Source content
 
