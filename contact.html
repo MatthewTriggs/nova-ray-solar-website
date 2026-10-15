@@ -79,7 +79,7 @@
     <div>
       <h3>Request a Free Quote</h3>
       <p>Fill in your details and a brief description of your home or business, and we'll be in touch to arrange a free site inspection.</p>
-      <!-- Enquiries are delivered by FormSubmit (formsubmit.co) to solar.novaray@gmail.com. js/main.js posts to /api/enquiry, which forwards to FormSubmit server side; the action below is the no-JavaScript fallback. -->
+      <!-- Enquiries are delivered by FormSubmit (formsubmit.co) to solar.novaray@gmail.com. js/main.js posts to FormSubmit's AJAX endpoint and falls back to a pre-filled WhatsApp message if that fails; the action below is the no-JavaScript fallback. -->
       <form id="contact-form" action="https://formsubmit.co/solar.novaray@gmail.com" method="POST">
         <input type="hidden" name="_subject" value="New website enquiry - Nova Ray Solar">
         <input type="hidden" name="_template" value="table">

@@ -10,7 +10,6 @@ Static HTML/CSS/JS website for Nova Ray Solar, a solar installation business bas
 - `gallery.html`: Installation photo gallery
 - `contact.html`: Contact details and enquiry form
 - `css/styles.css`: Site styles
-- `api/enquiry.js`: Vercel function that forwards enquiries to FormSubmit
 - `js/main.js`: Mobile nav toggle, footer year, contact form submission (FormSubmit)
 - `images/`: Logo, installation photos and package pamphlet images
 
@@ -24,9 +23,9 @@ Search the codebase for `PLACEHOLDER` to find copy the client should confirm bef
 
 ## Contact form
 
-The enquiry form on `contact.html` sends submissions by email to solar.novaray@gmail.com using [FormSubmit](https://formsubmit.co) (free, no account). `js/main.js` posts to `api/enquiry.js` (a Vercel function), which forwards the enquiry to FormSubmit's AJAX endpoint server side. This matters because FormSubmit rejects requests without a Referer header, and many browsers (Safari, Brave, privacy extensions) strip it. The visitor sees a success or error message, and the enquiry email's reply-to is set to the visitor's address; the form's `action` is a fallback for visitors without JavaScript. A hidden `_honey` field filters spam bots.
+The enquiry form on `contact.html` sends submissions by email to solar.novaray@gmail.com using [FormSubmit](https://formsubmit.co) (free, no account). `js/main.js` posts straight from the browser to FormSubmit's AJAX endpoint. FormSubmit rejects requests without a Referer header (some browsers and privacy extensions strip it), and it blocks server-side requests from Vercel (403), so a proxy function is not an option. If sending fails, the visitor gets a "Send via WhatsApp instead" button with their details pre-filled; the form's `action` is a fallback for visitors without JavaScript. A hidden `_honey` field filters spam bots.
 
-FormSubmit only delivers after a one-time activation: the first submission sends an activation email to solar.novaray@gmail.com, and the link in it must be clicked. To change the receiving address, update it in both `contact.html` and `api/enquiry.js` (and re-activate).
+FormSubmit only delivers after a one-time activation: the first submission sends an activation email to solar.novaray@gmail.com, and the link in it must be clicked. To change the receiving address, update it in both `contact.html` and `js/main.js` (and re-activate).
 
 ## Source content
 

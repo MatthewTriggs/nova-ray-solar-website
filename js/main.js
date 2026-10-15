@@ -41,9 +41,13 @@ document.addEventListener("DOMContentLoaded", function () {
       button.textContent = "Sending...";
       setStatus("", "");
 
-      fetch("/api/enquiry", {
+      // FormSubmit rejects requests without a Referer, so ask the browser to send one.
+      // Some browsers and privacy extensions strip it anyway; the WhatsApp fallback covers those.
+      fetch("https://formsubmit.co/ajax/solar.novaray@gmail.com", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
+        referrer: window.location.href,
+        referrerPolicy: "no-referrer-when-downgrade",
         body: JSON.stringify(data)
       })
         .then(function (response) {
@@ -58,7 +62,21 @@ document.addEventListener("DOMContentLoaded", function () {
           form.reset();
         })
         .catch(function () {
-          setStatus("Sorry, your enquiry couldn't be sent. Please call or WhatsApp us on 072 551 9140, or email solar.novaray@gmail.com.", "error");
+          setStatus("Sorry, your enquiry couldn't be sent from this browser. Tap below to send it on WhatsApp instead, or call 072 551 9140.", "error");
+          var text = "Hi Nova Ray Solar, I'd like a free quote.\n\n" +
+            "Name: " + data.name + "\n" +
+            "Phone: " + data.phone + "\n" +
+            "Email: " + data.email + "\n" +
+            "Interested in: " + (data.package || "Not sure yet") +
+            (data.message ? "\n\n" + data.message : "");
+          var link = document.createElement("a");
+          link.href = "https://wa.me/27725519140?text=" + encodeURIComponent(text);
+          link.target = "_blank";
+          link.rel = "noopener";
+          link.className = "btn btn-primary form-fallback";
+          link.textContent = "Send via WhatsApp instead";
+          status.appendChild(document.createElement("br"));
+          status.appendChild(link);
         })
         .then(function () {
           button.disabled = false;
